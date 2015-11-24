@@ -3,4 +3,5 @@ tangoabcdelta.github.pub
 node_modules/*
 node_modules
 app/vendor/*
+app/examples/*
 dist/*
