@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "be productive",
+  "description": "procrastinate less, produce more",
+  "version": "1.0",
+  "browser_action": {
+      "default_icon": "1447953221_hourglass.png",
+      "default_popup": "popup.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": [
+    "tabs",
+    "alarms",
+    "audioModem",
+    "clipboardRead",
+    "activeTab",
+    "http://*/",
+    "https://*/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["watch-dog.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

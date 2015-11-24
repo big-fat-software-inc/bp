@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>react demo</title>
+  <link rel="stylesheet" href="../shared/css/base.css" />
+</head>
+<body>
+  <div id="view" align="center"></div>
+
+
+  <script src="../../build/react.js"></script>
+  <script src="../../build/react-dom.js"></script>
+  <script src="../../vendor/browser.min.js"></script>
+  <script type="text/babel">
+
+    var Page = React.createClass({
+      headCount: 999,
+      render: function () {
+        return (<div><Header count={this.headCount} /><span>Kaboom</span></div>);
+      }
+    });
+
+
+    var Header = React.createClass({
+      render: function () {
+        return (
+          <div align="center">
+            <h2 align="center">
+              Header for the Page, Property Count = {this.props.count}
+            </h2>
+            <p align="center">Site Map</p>
+            <Links />
+          </div>
+        );
+      }
+    });
+
+    var Links = React.createClass({
+      length: 5,
+      render: function () {
+        return (<ul align="center">
+              {
+                [,...Array(this.length)]
+                .map((x, i) =>
+                  <li key={i}><a href={'#site' + i + '.html'}>Site {i}</a></li>
+                )
+              }
+            
+        </ul>);
+      }
+    });
+
+    ReactDOM.render(<Page />, document.getElementById('view'));
+    console.log(Header.state);
+
+  </script>
+
+</body>
+</html>
